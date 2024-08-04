@@ -1,5 +1,13 @@
 const { JSDOM } = require("jsdom");
 
+  async function crawlPage(currentUrl)
+ {
+     console.log(`actively crawling: ${currentUrl}`);
+     const resp=await fetch(currentUrl);
+     console.log(await resp.text());
+
+ }
+
 function getUrlsFromHtml(HtmlBody, baseUrl) {
   const urlsInPage = [];
   const dom = new JSDOM(HtmlBody); //jsdom converts html code into string
@@ -35,4 +43,4 @@ function normalizeUrl(urlString) {
   }
   return hostPath;
 }
-module.exports = { normalizeUrl, getUrlsFromHtml };
+module.exports = { normalizeUrl, getUrlsFromHtml,crawlPage};
