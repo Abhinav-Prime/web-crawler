@@ -62,7 +62,7 @@ test(getUrlsFromHtml, () => {
   const inputHtmlBody = `
     <html>
     <body>
-    <a href="invald">
+    <a href="invald link">
     this is google
     </a>
     </body>
