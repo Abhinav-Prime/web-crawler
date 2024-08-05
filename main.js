@@ -19,4 +19,4 @@ async function main()
     console.log(page);
    }
 }
-main()
+main();
