@@ -13,14 +13,12 @@ test(normalizeUrl, () => {
   const actual = normalizeUrl(input);
   const expected = "google.com";
   expect(actual).toEqual(expected);
- 
 });
 test(normalizeUrl, () => {
   const input = "http://GOOGLE.com/";
   const actual = normalizeUrl(input);
   const expected = "google.com";
   expect(actual).toEqual(expected);
- 
 });
 test(getUrlsFromHtml, () => {
   const inputHtmlBody = `
@@ -55,7 +53,7 @@ test(getUrlsFromHtml, () => {
     `;
   const inputBaseUrl = "http://google.com";
   const actual = getUrlsFromHtml(inputHtmlBody, inputBaseUrl);
-  const expected = ["http://google.com/path1/","http://google.com/"];
+  const expected = ["http://google.com/path1/", "http://google.com/"];
   expect(actual).toEqual(expected);
 });
 

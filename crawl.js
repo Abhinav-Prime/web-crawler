@@ -1,7 +1,6 @@
 const { JSDOM } = require("jsdom");
 
 async function crawlPage(baseUrl, currentUrl, pages) {
- 
   const baseUrlObj = new URL(baseUrl);
   const currentUrlObj = new URL(currentUrl);
 
@@ -16,7 +15,7 @@ async function crawlPage(baseUrl, currentUrl, pages) {
     pages[currentNormalizedUrl]++;
     return pages;
   }
-  pages[currentNormalizedUrl]=1;
+  pages[currentNormalizedUrl] = 1;
   console.log(`actively crawling: ${currentUrl}`);
 
   try {
@@ -36,18 +35,16 @@ async function crawlPage(baseUrl, currentUrl, pages) {
       );
       return pages;
     }
-   
-const htmlBody=await resp.text();
-const nextUrls=getUrlsFromHtml(htmlBody,baseUrl)
-for(const nextUrl of nextUrls)
-{
-    pages= await crawlPage(baseUrl,nextUrl,pages)
-}
 
+    const htmlBody = await resp.text();
+    const nextUrls = getUrlsFromHtml(htmlBody, baseUrl);
+    for (const nextUrl of nextUrls) {
+      pages = await crawlPage(baseUrl, nextUrl, pages);
+    }
   } catch (err) {
     console.log(`error in fetch: ${err.message}, on page ${currentUrl}`);
   }
-  return pages
+  return pages;
 }
 
 function getUrlsFromHtml(HtmlBody, baseUrl) {
