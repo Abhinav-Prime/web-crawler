@@ -18,7 +18,7 @@ function sortPages(pages) {
   PagesArr.sort((a, b) => {
     aHits = a[1];
     bHits = b[1];
-    return b[1] - a[1];
+    return b[1] - a[1]
   });
   return PagesArr;
 }
