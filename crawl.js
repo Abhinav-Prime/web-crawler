@@ -1,6 +1,6 @@
 const { JSDOM } = require("jsdom");
 
-async function crawlPage(baseUrl, currentUrl, pages) {
+async function crawlPage(baseUrl, currentUrl, pages,delay=1000) {
   const baseUrlObj = new URL(baseUrl);
   const currentUrlObj = new URL(currentUrl);
 
@@ -19,7 +19,12 @@ async function crawlPage(baseUrl, currentUrl, pages) {
   console.log(`actively crawling: ${currentUrl}`);
 
   try {
-    const resp = await fetch(currentUrl);
+    await new Promise(resolve => setTimeout(resolve, delay)); // Adding delay to pretend as a valid user
+    const resp = await fetch(currentUrl, {
+      headers: {
+        "User-Agent": "Mozilla/5.0 (compatible; Crawler/1.0; +http://yourdomain.com/crawler)"
+      }
+    });
     if (resp.status > 399) {
       console.log(
         `error in fetch with status code:${resp.status} on page:${currentUrl}`
