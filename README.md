@@ -42,21 +42,5 @@ This file contains functions for sorting pages and printing the crawl report.
 The project uses Jest for testing. The tests cover URL normalization, URL extraction from HTML, and page sorting.
 To run the tests: npm test
 
-## Example
-Example output of running the crawler on https://example.com:
-starting crawl of https://example.com!
-Actively crawling: https://example.com
-...
-==============
-REPORT
-==============
-Found 5 links to page: https://example.com/path1
-Found 3 links to page: https://example.com
-Found 2 links to page: https://example.com/path2
-Found 1 links to page: https://example.com/path
-==============
-END REPORT
-==============
-
 ## Contributing
 Contributions are welcome! Please open an issue or submit a pull request.
